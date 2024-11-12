@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WiFiScanner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="WiFi сканнер" Height="400" Width="529">
+    <Grid Background="Lavender">
+        <Button x:Name="ButtonScan" Content="Сканировать" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonScan_Click" Margin="73,60,0,0" FontSize="14"/>
+        <Button x:Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonSave_Click" Margin="80,105,0,0" FontSize="14"/>
+        <Label x:Name="labelBestNet" Content="Имя сети с наилучшим сигналом" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Top" FontSize="14" Width="226"/>
+        <DataGrid x:Name="WiFiNetsList" Margin="229,0,10,10" FontSize="14" FontWeight="Bold" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path = LocalId}" IsReadOnly="True" Header="Id" Width="30"/>
+                <DataGridTextColumn Binding="{Binding Path = Name}" IsReadOnly="True" Header="Имя (SSID) сети" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path = SignalLevel}" IsReadOnly="True" Header="Уровень сигнала" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
